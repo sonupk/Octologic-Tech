@@ -1,0 +1,24 @@
+{
+  "name": "octologic-tech",
+  "version": "1.0.0",
+  "description": "Assignment of Octologic Tech",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sonupk/Octologic-Tech.git"
+  },
+  "author": "Sonu Kamble",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sonupk/Octologic-Tech/issues"
+  },
+  "homepage": "https://github.com/sonupk/Octologic-Tech#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^7.3.1",
+    "nodemon": "^2.0.22"
+  }
+}
