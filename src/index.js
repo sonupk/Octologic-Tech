@@ -70,10 +70,10 @@ app.post('/bookings', async (req, res) => {
     }
 
     // Perform your checks to ensure bookings don't overlap
-    // ...
+    
 
     // Save the booking to the database
-    // ...
+    
 
     res.json({ message: 'Booking successful' });
   } catch (error) {

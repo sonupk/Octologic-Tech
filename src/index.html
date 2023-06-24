@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vehicle Booking Form</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+  <div id="questionContainer">
+    <h1>Vehicle Booking Form</h1>
+    <form id="bookingForm" onsubmit="submitForm(event)">
+      <div id="question1" class="question">
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" required>
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" required>
+        <button type="button" onclick="nextQuestion()">Next</button>
+      </div>
+      <div id="question2" class="question" style="display: none;">
+        <p>Number of Wheels:</p>
+        <input type="radio" id="twoWheels" name="wheels" value="2" required>
+        <label for="twoWheels">2</label>
+        <input type="radio" id="fourWheels" name="wheels" value="4" required>
+        <label for="fourWheels">4</label>
+        <button type="button" onclick="nextQuestion()">Next</button>
+      </div>
+      <div id="question3" class="question" style="display: none;">
+        <p>Type of Vehicle:</p>
+        <!-- Options will be populated dynamically from the backend -->
+        <div id="vehicleTypeOptions"></div>
+        <button type="button" onclick="nextQuestion()">Next</button>
+      </div>
+      <div id="question4" class="question" style="display: none;">
+        <p>Specific Model:</p>
+        <!-- Options will be populated dynamically based on the selected vehicle type -->
+        <div id="vehicleModelOptions"></div>
+        <button type="button" onclick="nextQuestion()">Next</button>
+      </div>
+      <div id="question5" class="question" style="display: none;">
+        <p>Date Range:</p>
+        <label for="startDate">Start Date:</label>
+        <input type="date" id="startDate" required>
+        <label for="endDate">End Date:</label>
+        <input type="date" id="endDate" required>
+        <button type="submit">Submit</button>
+      </div>
+    </form>
+  </div>
+
+  <div id="outputContainer" style="display: none;">
+    <h1>Booking Summary</h1>
+    <div id="bookingSummary"></div>
+  </div>
