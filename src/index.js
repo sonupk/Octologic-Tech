@@ -22,6 +22,42 @@ const vehicleSchema = new mongoose.Schema({
 // Create the vehicle model
 const Vehicle = mongoose.model('Vehicle', vehicleSchema);
 
+//Create the Bookings model
+const bookingSchema = new mongoose.Schema({
+    firstName: {
+      type: String,
+      required: true
+    },
+    lastName: {
+      type: String,
+      required: true
+    },
+    wheels: {
+      type: Number,
+      required: true
+    },
+    vehicleType: {
+      type: String,
+      required: true
+    },
+    vehicleModel: {
+      type: String,
+      required: true
+    },
+    startDate: {
+      type: Date,
+      required: true
+    },
+    endDate: {
+      type: Date,
+      required: true
+    }
+  });
+
+  // Create the booking model
+  const Booking = mongoose.model('Booking', bookingSchema);
+  
+
 // Seed initial data into the database
 async function seedDatabase() {
   try {
@@ -60,24 +96,14 @@ app.get('/vehicles', async (req, res) => {
 
 // Submit a booking
 app.post('/bookings', async (req, res) => {
-  const { type, name } = req.body;
-
-  try {
-    // Check if the vehicle is available
-    const vehicle = await Vehicle.findOne({ type, name });
-    if (!vehicle) {
-      return res.status(404).json({ error: 'Vehicle not found' });
-    }
-
-    // Perform your checks to ensure bookings don't overlap
-    
-
-    // Save the booking to the database
-    
-
+    try {
+    const bookingData=req.body
+    const { firstName, lastName, wheels, vehicleType, vehicleModel, startDate, endDate } = bookingData;
     res.json({ message: 'Booking successful' });
+    // Perform booking logic here, checking for overlapping bookings and 
+//saving the booking to the database
   } catch (error) {
-    res.status(500).json({ error: 'Internal server error' });
+    //res.status(500).json({ error: 'Internal server error' });
   }
 });
 
